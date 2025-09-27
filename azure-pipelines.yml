@@ -1,22 +1,34 @@
 trigger:
-- main   # branch bạn muốn đồng bộ
+- master  # hoặc main tùy Azure Repo của bạn
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
+# Checkout source từ Azure Repos
 - checkout: self
   persistCredentials: true
+  clean: true
+  fetchDepth: 0
 
+# Kiểm tra commit log
 - script: |
-    echo "===> Cấu hình Git"
-    git config --global user.email "darkskintam.07@gmail.com"
-    git config --global user.name "MinhTamLA"
+    echo "=== Commit history ==="
+    git log --oneline -5
+  displayName: "Check latest commits"
 
-    echo "===> Add remote GitHub"
+# Sync sang GitHub
+- script: |
+    echo "=== Cấu hình Git ==="
+    git config user.email "darkskintam.07@gmail.com"
+    git config user.name "MinhTamLA"
+
+    echo "=== Add remote GitHub ==="
     git remote add github https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@github.com/MinhTamLA/TV360.git
 
-    echo "===> Push lên GitHub"
-    git push github main --force
-    
-  displayName: 'Sync Azure Repos → GitHub'
+    echo "=== Kiểm tra nhánh hiện tại ==="
+    git branch -a
+
+    echo "=== Push lên GitHub ==="
+    git push github HEAD:main --force
+  displayName: "Sync Azure Repos → GitHub"
