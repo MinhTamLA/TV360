@@ -1,0 +1,21 @@
+trigger:
+- main   # branch bạn muốn đồng bộ
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: self
+  persistCredentials: true
+
+- script: |
+    echo "===> Cấu hình Git"
+    git config --global user.email "darkskintam.07@gmail.com"
+    git config --global user.name "MinhTamLA"
+
+    echo "===> Add remote GitHub"
+    git remote add github https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@github.com/MinhTamLA/TV360.git
+
+    echo "===> Push lên GitHub"
+    git push github main --force
+  displayName: 'Sync Azure Repos → GitHub'
