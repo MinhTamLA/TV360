@@ -17,5 +17,6 @@ steps:
     git remote add github https://$(GITHUB_USERNAME):$(GITHUB_TOKEN)@github.com/MinhTamLA/TV360.git
 
     echo "===> Push lên GitHub"
-    git push github main --force
+    git push github master --force
+    
   displayName: 'Sync Azure Repos → GitHub'
