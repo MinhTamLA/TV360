@@ -2,9 +2,11 @@
  "name":"THTT Bảng G Vòng loại FIFA World Cup 2026 - Khu vực châu Âu: Phần Lan vs Lít-va",
  "link":"https://tv360.vn/tv/vtv5-hd?ch=9868&c=0&d=2025-10-10&pid=13448762437",
  "endTime":"01:00",
- "duration":3600},
+ "duration":3600,
+ "datetime":"2025-10-10"},
  {"startTime":"01:35",
  "name":"THTT Bảng L Vòng loại FIFA World Cup 2026 - Khu vực châu Âu: Cộng hòa Séc vs Croatia",
  "link":"https://tv360.vn/tv/vtv5-hd?ch=9868&c=0&d=2025-10-10&pid=13448762440",
  "endTime":"03:45",
- "duration":7800}]
+ "duration":7800,
+ "datetime":"2025-10-10"}]
